@@ -28,7 +28,11 @@ let createCharacterCards = (characters) => {
   let HTMLtoappend = ``;
 
   characters.forEach((character) => {
-    let {id,name, description, thumbnail: {extension,path}} = character
+    let {name, description, thumbnail: {extension,path}} = character
+    comics = [];
+    comics = character.comics.items;
+    console.log(comics);
+    
     HTMLtoappend += `
       <div class="card col-4 m-3 bg-dark-subtle" style="width: 18rem;">
         <img src="${path+`.`+extension}" class="card-img-top overflow-hidden" style="height: 10rem;" alt="...">
@@ -38,15 +42,17 @@ let createCharacterCards = (characters) => {
         </div>
       </div>
       `;
+    
   });
   document.getElementById('container').innerHTML = HTMLtoappend;
 };
 
-// getMarvelData(mainURL)
+// FUNCION PARA HACER EL FETCH DE LA INFO DE LOS PERSONAJES
 
 document.addEventListener('DOMContentLoaded', ()=>{
   getMarvelData(mainURL)
   .then(characters =>{
     createCharacterCards(characters);
-  })
+  });
 })
+
