@@ -36,7 +36,6 @@ let createCharacterCards = (characters) => {
         <div class="card-body">
           <h5 class="card-title">${name}</h5>
           <p class="card-text overflow-auto" style="height: 5rem;">${description || `this character has no description`}</p>
-          <a href="#" class="btn btn-outline-danger " id="${id}">Mas info.</a>
         </div>
       </div>
       `;
